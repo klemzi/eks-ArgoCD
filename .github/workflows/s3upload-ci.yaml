@@ -65,7 +65,7 @@ jobs:
     permissions:
       contents: write
     env:
-      TAG: ${{ needs.build.outputs.TAG }}
+      TAG: ${{ needs.push.outputs.TAG }}
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -74,7 +74,7 @@ jobs:
       - name: Update values.yaml
         uses: fjogeleit/yaml-update-action@main
         with:
-          valueFile: './spark-app/app.yaml'
+          valueFile: 'spark-app/app.yaml'
           propertyPath: 'spec.mainApplicationFile'
           value: s3a://${{ env.BUCKET }}/${{ env.FILE_PREFIX }}-${{ env.TAG }}.py
           commitChange: true
