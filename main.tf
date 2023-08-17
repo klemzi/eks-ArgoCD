@@ -169,3 +169,11 @@ resource "aws_secretsmanager_secret_version" "argocd" {
   secret_string = random_password.argocd.result
 }
 
+# To store pyspark artifact
+resource "aws_s3_bucket" "example" {
+  bucket = "my-pyspark-bucket"
+
+  tags = {
+    Name = "my-pyspark-bucket"
+  }
+}
