@@ -67,3 +67,4 @@ jobs:
           branch: main
           value: s3a://${{ env.BUCKET }}/${{ env.FILE_PREFIX }}-${{ env.TAG }}.py
           commitChange: true
+          message: 'ci updated s3 location'
