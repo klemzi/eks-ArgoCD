@@ -49,11 +49,11 @@ jobs:
   commit:
     name: update spark application
     runs-on: ubuntu-latest
-    needs: push
+    needs: build
     permissions:
       contents: write
     env:
-      TAG: ${{ needs.push.outputs.TAG }}
+      TAG: ${{ needs.build.outputs.TAG }}
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
