@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-    paths:
-      - spark-job/**
+    # paths:
+    #   - spark-job/**
 
 env:
   BUCKET: my-pyspark-bucket
