@@ -19,7 +19,7 @@ spec:
   mode: cluster
   image: 3bittechs/spark-py:3.0.1@sha256:dc1225d8429351426f05ba2dca85054368ec35f110601059c20d5587a029860f
   imagePullPolicy: IfNotPresent
-  mainApplicationFile: s3a://my-pyspark-bucket/pyspark-job-d1a0e-1692304382.py
+  mainApplicationFile: s3a://my-pyspark-bucket/pyspark-job-52307-1692304727.py
   arguments:
     - s3a://taxi-events/
     - s3a://taxi-stage/
