@@ -5,7 +5,7 @@ from pyspark.sql.functions import *
 from pyspark.sql.avro.functions import *
 from pyspark.sql import SparkSession
 
-# test 1
+# test 2
 source=sys.argv[1]
 target=sys.argv[2]
 
