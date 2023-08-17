@@ -1,10 +1,11 @@
 name: s3 upload ci
 
 on:
-  branches:
-    - main
-  paths:
-    - spark-job/**
+  push:
+    branches:
+      - main
+    paths:
+      - spark-job/**
 
 env:
   BUCKET: my-pyspark-bucket
