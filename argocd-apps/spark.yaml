@@ -26,7 +26,7 @@ spec:
       # Release name override (defaults to application name)
       releaseName: spark-operator
       valuesObject:
-         valuesObject: default
+        sparkJobNamespace: default
       # Skip custom resource definition installation if chart contains custom resource definitions. Defaults to false
       skipCrds: false
 
