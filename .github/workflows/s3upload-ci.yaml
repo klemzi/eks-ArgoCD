@@ -72,7 +72,7 @@ jobs:
       - name: Update values.yaml
         uses: fjogeleit/yaml-update-action@main
         with:
-          valueFile: 'spark-app.yaml'
+          valueFile: 'spark-app/app.yaml'
           propertyPath: 'spec.mainApplicationFile'
           value: s3a://${{ env.BUCKET }}/${{ env.FILE_PREFIX }}-${{ env.TAG }}.py
           commitChange: true
