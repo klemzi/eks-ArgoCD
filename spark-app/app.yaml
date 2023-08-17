@@ -1,4 +1,4 @@
-apiVersion: "sparkoperator.k8s.io/v1beta2"
+apiVersion: sparkoperator.k8s.io/v1beta2
 kind: SparkApplication
 metadata:
   name: my-spark-job
@@ -8,26 +8,28 @@ spec:
     - name: store
       emptyDir: {}
   sparkConf:
-    spark.jars.packages: "org.apache.hadoop:hadoop-aws:3.2.0,org.apache.spark:spark-avro_2.12:3.0.1"
-    spark.driver.extraJavaOptions: "-Divy.cache.dir=/tmp -Divy.home=/tmp"
-    spark.kubernetes.allocation.batch.size: "10"
+    spark.jars.packages: org.apache.hadoop:hadoop-aws:3.2.0,org.apache.spark:spark-avro_2.12:3.0.1
+    spark.driver.extraJavaOptions: '-Divy.cache.dir=/tmp -Divy.home=/tmp'
+    spark.kubernetes.allocation.batch.size: '10'
   hadoopConf:
     fs.s3a.impl: org.apache.hadoop.fs.s3a.S3AFileSystem
     fs.s3a.aws.credentials.provider: com.amazonaws.auth.InstanceProfileCredentialsProvider
   type: Python
-  pythonVersion: "3"
+  pythonVersion: '3'
   mode: cluster
-  image: "3bittechs/spark-py:3.0.1@sha256:dc1225d8429351426f05ba2dca85054368ec35f110601059c20d5587a029860f"
+  image: 3bittechs/spark-py:3.0.1@sha256:dc1225d8429351426f05ba2dca85054368ec35f110601059c20d5587a029860f
   imagePullPolicy: IfNotPresent
-  mainApplicationFile: s3a://my-spark-bucket/job.py
-  arguments: ['s3a://taxi-events/', 's3a://taxi-stage/']
-  sparkVersion: "3.0.1"
+  mainApplicationFile: s3a://my-pyspark-bucket/pyspark-job-d1a0e-1692304382.py
+  arguments:
+    - s3a://taxi-events/
+    - s3a://taxi-stage/
+  sparkVersion: 3.0.1
   restartPolicy:
     type: Never
   driver:
     cores: 1
-    coreLimit: "1200m"
-    memory: "1g"
+    coreLimit: 1200m
+    memory: 1g
     labels:
       version: 3.0.1
     serviceAccount: spark
@@ -39,7 +41,7 @@ spec:
   executor:
     cores: 1
     instances: 2
-    memory: "1g"
+    memory: 1g
     labels:
       version: 3.0.1
     volumeMounts:
