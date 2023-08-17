@@ -1,2 +1,2 @@
 # eks-ArgoCD
-EKS Cluster with ArgoCD added
+Deploys spark application to EKS Cluster with ArgoCD.
