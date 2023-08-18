@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 spark = SparkSession.builder \
-    .master("local[1]") \
+    .master("local[2]") \
     .appName("my-test-spark-job") \
     .getOrCreate()
 
