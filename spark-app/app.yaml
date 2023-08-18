@@ -13,7 +13,7 @@ spec:
     spark.kubernetes.allocation.batch.size: '10'
   hadoopConf:
     fs.s3a.impl: org.apache.hadoop.fs.s3a.S3AFileSystem
-    fs.s3a.aws.credentials.provider: com.amazonaws.auth.InstanceProfileCredentialsProvider
+    fs.s3a.aws.credentials.provider: org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider
     fs.s3a.region: us-east-1
   type: Python
   pythonVersion: '3'
@@ -22,6 +22,8 @@ spec:
   imagePullPolicy: IfNotPresent
   mainApplicationFile: s3a://my-pyspark-bucket/pyspark-job-61298-1692335476.py
   sparkVersion: 3.1.1
+  securityContext:
+    fsGroup: 65534
   restartPolicy:
     type: Never
   driver:
