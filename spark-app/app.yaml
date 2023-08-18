@@ -19,7 +19,7 @@ spec:
   image: gcr.io/spark-operator/spark:v3.1.1
   imagePullPolicy: IfNotPresent
   mainApplicationFile: s3a://my-pyspark-bucket/pyspark-job-ea1c9-1692332378.py
-  sparkVersion: 3.2.0
+  sparkVersion: 3.1.1
   restartPolicy:
     type: Never
   driver:
@@ -27,7 +27,7 @@ spec:
     coreLimit: 1200m
     memory: 512m
     labels:
-      version: 3.2.0
+      version: 3.1.1
     serviceAccount: spark-operator-spark
     volumeMounts:
       - name: store
@@ -37,7 +37,7 @@ spec:
     instances: 1
     memory: 512m
     labels:
-      version: 3.2.0
+      version: 3.1.1
     volumeMounts:
       - name: store
         mountPath: /tmp
