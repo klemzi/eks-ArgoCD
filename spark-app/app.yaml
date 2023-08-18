@@ -8,7 +8,7 @@ spec:
     - name: store
       emptyDir: {}
   sparkConf:
-    spark.jars.packages: org.apache.hadoop:hadoop-aws:3.3.1,org.apache.hadoop:hadoop-common:3.3.1,org.apache.hadoop:hadoop-client:3.2.1
+    spark.jars.packages: org.apache.hadoop:hadoop-aws:3.2.0,org.apache.hadoop:hadoop-common:3.2.0,org.apache.hadoop:hadoop-client:3.2.0
     spark.driver.extraJavaOptions: '-Divy.cache.dir=/tmp -Divy.home=/tmp'
     spark.kubernetes.allocation.batch.size: '10'
   hadoopConf:
