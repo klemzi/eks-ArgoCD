@@ -15,6 +15,7 @@ spec:
     fs.s3a.impl: org.apache.hadoop.fs.s3a.S3AFileSystem
     fs.s3a.aws.credentials.provider: com.amazonaws.auth.InstanceProfileCredentialsProvider
   type: Python
+  pythonVersion: "3"
   mode: cluster
   image: gcr.io/spark-operator/spark:v3.1.1
   imagePullPolicy: IfNotPresent
