@@ -12,6 +12,7 @@ spec:
     spark.driver.extraJavaOptions: '-Divy.cache.dir=/tmp -Divy.home=/tmp'
     spark.kubernetes.allocation.batch.size: '10'
   hadoopConf:
+    fs.s3a.impl: org.apache.hadoop.fs.s3a.S3AFileSystem
     fs.s3a.aws.credentials.provider: com.amazonaws.auth.InstanceProfileCredentialsProvider
   type: Python
   pythonVersion: "3"
