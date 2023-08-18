@@ -17,18 +17,18 @@ spec:
   type: Python
   pythonVersion: '3'
   mode: cluster
-  image: 3bittechs/spark-py:3.0.1@sha256:dc1225d8429351426f05ba2dca85054368ec35f110601059c20d5587a029860f
+  image: "gcr.io/spark-operator/spark:v3.1.1"
   imagePullPolicy: IfNotPresent
   mainApplicationFile: s3a://my-pyspark-bucket/pyspark-job-76d2e-1692305903.py
-  sparkVersion: 3.2.0
+  sparkVersion: 3.1.1
   restartPolicy:
     type: Never
   driver:
     cores: 1
     coreLimit: 1200m
-    memory: 1g
+    memory: 512m
     labels:
-      version: 3.2.0
+      version: 3.1.1
     serviceAccount: spark
     securityContext:
       fsGroup: 65534
@@ -37,10 +37,10 @@ spec:
         mountPath: /tmp
   executor:
     cores: 1
-    instances: 2
-    memory: 1g
+    instances: 1
+    memory: 512m
     labels:
-      version: 3.2.0
+      version: 3.1.1
     volumeMounts:
       - name: store
         mountPath: /tmp
