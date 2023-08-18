@@ -16,7 +16,7 @@ spec:
   type: Python
   pythonVersion: "3"
   mode: cluster
-  image: gcr.io/spark-operator/spark:v3.1.1
+  image: gcr.io/spark-operator/spark:v3.2.0
   imagePullPolicy: IfNotPresent
   mainApplicationFile: s3a://my-pyspark-bucket/pyspark-job-ea1c9-1692332378.py
   sparkVersion: 3.2.0
