@@ -13,7 +13,8 @@ spec:
     spark.kubernetes.allocation.batch.size: '10'
   hadoopConf:
     fs.s3a.impl: org.apache.hadoop.fs.s3a.S3AFileSystem
-    fs.s3a.aws.credentials.provider: com.amazonaws.auth.InstanceProfileCredentialsProvider
+    fs.s3a.aws.credentials.provider: com.amazonaws.auth.WebIdentityTokenCredentialsProvider
+    fs.s3a.region: us-east-1
   type: Python
   pythonVersion: '3'
   mode: cluster
