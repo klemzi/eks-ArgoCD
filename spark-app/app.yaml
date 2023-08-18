@@ -22,8 +22,6 @@ spec:
   imagePullPolicy: IfNotPresent
   mainApplicationFile: s3a://my-pyspark-bucket/pyspark-job-61298-1692335476.py
   sparkVersion: 3.1.1
-  securityContext:
-    fsGroup: 65534
   restartPolicy:
     type: Never
   driver:
@@ -33,12 +31,16 @@ spec:
     labels:
       version: 3.1.1
     serviceAccount: spark-operator-spark
+    securityContext:
+      fsGroup: 65534
     volumeMounts:
       - name: store
         mountPath: /tmp
   executor:
     cores: 1
     instances: 1
+    securityContext:
+      fsGroup: 65534
     memory: 512m
     labels:
       version: 3.1.1
