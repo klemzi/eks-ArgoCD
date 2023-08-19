@@ -18,7 +18,7 @@ spec:
   type: Python
   pythonVersion: '3'
   mode: cluster
-  image: bbenzikry/spark-eks:pyspark3-latest
+  image: bbenzikry/spark-eks:spark3-latest
   imagePullPolicy: IfNotPresent
   mainApplicationFile: s3a://my-pyspark-bucket/pyspark-job-61298-1692335476.py
   sparkVersion: 3.0.1
